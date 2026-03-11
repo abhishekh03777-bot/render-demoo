@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>IPL Win Predictor</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;">
+
+<h1>IPL Win Predictor</h1>
+
+<form action="/predict" method="post">
+
+<label>Batting Team</label>
+<select name="BattingTeam">
+<option>Chennai Super Kings</option>
+<option>Mumbai Indians</option>
+<option>Royal Challengers Bangalore</option>
+<option>Kolkata Knight Riders</option>
+<option>Delhi Capitals</option>
+<option>Sunrisers Hyderabad</option>
+<option>Rajasthan Royals</option>
+<option>Punjab Kings</option>
+</select>
+
+<br><br>
+
+<label>Bowling Team</label>
+<select name="BowlingTeam">
+<option>Chennai Super Kings</option>
+<option>Mumbai Indians</option>
+<option>Royal Challengers Bangalore</option>
+<option>Kolkata Knight Riders</option>
+<option>Delhi Capitals</option>
+<option>Sunrisers Hyderabad</option>
+<option>Rajasthan Royals</option>
+<option>Punjab Kings</option>
+</select>
+
+<br><br>
+
+<label>City</label>
+<select name="City">
+<option>Mumbai</option>
+<option>Delhi</option>
+<option>Chennai</option>
+<option>Kolkata</option>
+<option>Hyderabad</option>
+<option>Bangalore</option>
+<option>Jaipur</option>
+<option>Mohali</option>
+<option>Ahmedabad</option>
+<option>Lucknow</option>
+<option>Pune</option>
+<option>Dharamsala</option>
+</select>
+<br><br>
+
+<label>Target</label>
+<input type="number" name="target" required>
+
+<br><br>
+
+<label>Current Score</label>
+<input type="number" name="score" required>
+
+<br><br>
+
+<label>Overs Completed</label>
+<input type="number" step="0.1" min="0.1" max="20" name="overs" required>
+
+<br><br>
+
+<label>Wickets Out</label>
+<input type="number" min="0" max="10" name="wickets" required>
+
+<br><br>
+
+<input type="submit" value="Predict Probability">
+
+</form>
+
+<br><br>
+
+{% if prediction_text %}
+<h2 style="color:green;">{{ prediction_text }}</h2>
+{% endif %}
+
+{% if loss_text %}
+<h2 style="color:red;">{{ loss_text }}</h2>
+{% endif %}
+
+</body>
+</html>
